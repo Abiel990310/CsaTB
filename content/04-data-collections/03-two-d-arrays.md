@@ -205,6 +205,10 @@ Two structural points that earn rubric marks:
 }
 :::
 
+## Practice
+
+:::exercise grid-rows
+
 :::recap
 - `int[][]` is an array of arrays, so rows are separate objects and may differ
   in length.

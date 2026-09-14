@@ -6,8 +6,7 @@ problem is auto-graded.
 
 **Ten chapters written** — 2.1 boolean expressions, plus most of Unit 4:
 arrays, ArrayList, 2-D arrays, searching and sorting, recursion. Chosen by exam
-weight rather than unit order, since Unit 4 alone is 30–40% of the score. 48
-samples, all compiling. `docs/ROADMAP.md` holds the rest.
+weight rather than unit order, since Unit 4 alone is 30–40% of the score. 48 samples and 2 auto-graded problems, all verified. `docs/ROADMAP.md` holds the rest.
 
 ## What the CED check found
 

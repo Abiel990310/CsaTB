@@ -208,6 +208,10 @@ That single distinction explains every array-parameter question on the exam.
 }
 :::
 
+## Practice
+
+:::exercise array-off-by-one
+
 :::recap
 - Arrays are fixed length, zero-indexed, and `length` is a field with no
   parentheses.
