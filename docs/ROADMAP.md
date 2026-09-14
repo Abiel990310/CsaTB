@@ -68,8 +68,8 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 
 - [x] 2.1 Boolean expressions, short-circuiting, and De Morgan
 - [ ] 2.2 `if`, `else if`, and the dangling case
-- [ ] 2.3 Loops, and tracing one by hand
-- [ ] 2.4 Nested loops, and counting how many times the body runs
+- [x] 2.3 Loops, and tracing one by hand (also covers nesting, while, break/continue)
+- [x] 2.4 Nested loops, and counting how many times the body runs — folded into 2.3
 - [ ] 2.5 `==` against `.equals`, which the exam asks every year
 - [ ] 2.6 Building an algorithm out of a loop
 
@@ -94,10 +94,10 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 ### Wave E — the exam itself
 
 - [ ] 5.1 How a multiple-choice question is built, and how to read one
-- [ ] 5.2 FRQ 1: methods and control structures
-- [ ] 5.3 FRQ 2: writing a class
-- [ ] 5.4 FRQ 3: array and `ArrayList`
-- [ ] 5.5 FRQ 4: 2-D array
+- [x] 5.2 The free-response section — all four types, rubric strategy, timing
+- [ ] 5.3 FRQ 2 in depth: writing a class
+- [ ] 5.4 FRQ 3 in depth: array and `ArrayList`
+- [ ] 5.5 FRQ 4 in depth: 2-D array
 - [ ] 5.6 Scoring: what earns a point and what does not
 
 ## Rules specific to this book
