@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The free-response section · The Java Textbook</title>
+  <meta name="description" content="Four questions, 45% of the score, marked per rubric point. Knowing where the points are is worth more than knowing more Java.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/CsaTB/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('tb-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="/CsaTB/assets/index-DU6-oSWJ.css">
+</head>
+<body class="">
+  <header class="topbar">
+  <button class="topbar__menu" id="menu-toggle" aria-label="Toggle contents" aria-expanded="false">
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+  </button>
+  <a class="topbar__brand" href="/CsaTB/">The Java Textbook</a>
+  <div class="topbar__spacer"></div>
+  <button class="search-trigger" id="search-trigger" aria-label="Search the book">
+    <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span>Search</span><kbd>/</kbd>
+  </button>
+  <button class="icon-button" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+    <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 1 0 7.5 7.5A6 6 0 0 1 10 2.5Z" fill="currentColor"/></svg>
+  </button>
+</header>
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Book contents">
+  <div class="sidebar__inner">
+    <a class="sidebar__link" href="/CsaTB/">Start here</a>
+    <a class="sidebar__link" href="/CsaTB/practice/">Practice problems</a>
+    <a class="sidebar__link" href="/CsaTB/reference/">Quick reference</a>
+    <a class="sidebar__link" href="/CsaTB/progress/">Progress</a>
+    <hr class="sidebar__rule">
+    <details class="nav__part"><summary><span class="nav__part-num">Part 1</span>Using Objects and Methods</summary><ul class="nav__list"><li><a href="/CsaTB/objects-and-methods/primitives-and-arithmetic/"><span class="nav__num">1.1</span><span class="nav__text">Primitives</span></a></li><li><a href="/CsaTB/objects-and-methods/references/"><span class="nav__num">1.2</span><span class="nav__text">References</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 2</span>Selection and Iteration</summary><ul class="nav__list"><li><a href="/CsaTB/selection-and-iteration/boolean-expressions/"><span class="nav__num">2.1</span><span class="nav__text">Boolean expressions</span></a></li><li><a href="/CsaTB/selection-and-iteration/loops/"><span class="nav__num">2.2</span><span class="nav__text">Loops</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 3</span>Class Creation</summary><ul class="nav__list"><li><a href="/CsaTB/class-creation/writing-a-class/"><span class="nav__num">3.1</span><span class="nav__text">Writing a class</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 4</span>Data Collections</summary><ul class="nav__list"><li><a href="/CsaTB/data-collections/arrays/"><span class="nav__num">4.1</span><span class="nav__text">Arrays</span></a></li><li><a href="/CsaTB/data-collections/arraylist/"><span class="nav__num">4.2</span><span class="nav__text">ArrayList</span></a></li><li><a href="/CsaTB/data-collections/two-d-arrays/"><span class="nav__num">4.3</span><span class="nav__text">2-D arrays</span></a></li><li><a href="/CsaTB/data-collections/searching-and-sorting/"><span class="nav__num">4.4</span><span class="nav__text">Search and sort</span></a></li><li><a href="/CsaTB/data-collections/recursion/"><span class="nav__num">4.5</span><span class="nav__text">Recursion</span></a></li></ul></details><details class="nav__part" open><summary><span class="nav__part-num">Part 5</span>The exam itself</summary><ul class="nav__list"><li><a href="/CsaTB/the-exam/free-response/" class="is-active" aria-current="page"><span class="nav__num">5.1</span><span class="nav__text">Free response</span></a></li></ul></details>
+  </div>
+</nav>
+    <main class="content" id="content">
+      <article class="prose" data-chapter="free-response">
+    <div class="chapter-head">
+      <p class="chapter-eyebrow"><a href="/CsaTB/the-exam/">Part 5 · The exam itself</a></p>
+      <h1>The free-response section</h1>
+      <p class="chapter-lede">Four questions, 45% of the score, marked per rubric point. Knowing where the points are is worth more than knowing more Java.</p>
+    </div>
+    
+    <section class="objectives">
+    <h2 class="objectives__title">By the end of this chapter you can</h2>
+    <ul><li>Recognise the four free-response types</li><li>Write an answer that collects partial credit</li><li>Avoid the errors that lose points on correct code</li><li>Budget time across the section</li></ul>
+  </section>
+    <p>Section II is four questions in 90 minutes for 45% of the score. Unlike the
+multiple-choice section, <strong>partial credit is the norm</strong> — and that fact should
+change how you write.</p>
+<h2 id="the-four-types" tabindex="-1">The four types</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Type</th>
+<th>What it asks</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Methods and control structures</td>
+<td>Write a method using loops and conditionals</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Class</td>
+<td>Write a complete class from a specification</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Array / <code>ArrayList</code></td>
+<td>Traverse or modify a 1-D collection</td>
+</tr>
+<tr>
+<td>4</td>
+<td>2-D array</td>
+<td>Traverse or modify a grid</td>
+</tr>
+</tbody>
+</table>
+<aside class="callout callout--note"><p class="callout__label">Note</p>
+<p>This four-type structure is long-standing, and the 2025–26 revision changed the
+course substantially — it removed inheritance entirely. Treat the list as
+<strong>probably right and worth confirming</strong> against the current Course and Exam
+Description before relying on it for a study plan.</p>
+<p>The chapter’s advice on collecting partial credit does not depend on the
+breakdown being exact.</p>
+</aside>
+<h2 id="rubric-points-not-right-answers" tabindex="-1">Rubric points, not right answers</h2>
+<p>An answer is marked against a list of specific points — a correct loop bound,
+a correct return, a correct update. You collect them independently.</p>
+<p>The consequences are practical:</p>
+<p><strong>Write something for every part.</strong> A part left blank scores zero with
+certainty. An attempt that gets the loop right and the condition wrong scores
+the loop.</p>
+<p><strong>Later parts often assume earlier ones.</strong> If part (b) uses the method from part
+(a), you may <strong>call your part (a) method even if you think it is wrong</strong> — you
+are marked on part (b)'s logic, not on (a)'s correctness a second time.</p>
+<p><strong>Do not leave a method half-deleted.</strong> Crossed-out code is not marked, but
+confused code might be. Commit to one version.</p>
+<h2 id="use-the-methods-you-are-given" tabindex="-1">Use the methods you are given</h2>
+<p>Specifications hand you helper methods. Using them is expected, and
+reimplementing them wastes time and invites mistakes:</p>
+<figure class="widget"><tb-runner data-run="1"><figcaption class="code__title">Use what the specification provides</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        Roster</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> r</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> Roster</span><span style="--sh-light:#999999;--sh-dark:#666666">();</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">count above 80: </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> r</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">countAbove</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">80</span><span style="--sh-light:#999999;--sh-dark:#666666">));</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Roster</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    private</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> scores</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">72</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 95</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 88</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 61</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 80</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">    // Imagine this one is GIVEN by the specification.</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> getScore</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> i</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> return</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> scores</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">i</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span><span style="--sh-light:#999999;--sh-dark:#666666"> }</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> size</span><span style="--sh-light:#999999;--sh-dark:#666666">()</span><span style="--sh-light:#999999;--sh-dark:#666666">          {</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> return</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> scores</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">length</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#999999;--sh-dark:#666666"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">    // This is the part you are asked to write.</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> countAbove</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> limit</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> count</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 0</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">        for</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> i</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 0</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> i </span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">&#x3C;</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> size</span><span style="--sh-light:#999999;--sh-dark:#666666">();</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> i</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">++</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">       // given method, not scores.length</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">            if</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#59873A;--sh-dark:#80A665">getScore</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">i</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> ></span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> limit</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> count</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">++</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">    // given method, not scores[i]</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">        }</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">        return</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> count</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">public class Main {
+    public static void main(String[] args) {
+        Roster r = new Roster();
+        System.out.println(&quot;count above 80: &quot; + r.countAbove(80));
+    }
+}
+
+class Roster {
+    private int[] scores = {72, 95, 88, 61, 80};
+
+    // Imagine this one is GIVEN by the specification.
+    public int getScore(int i) { return scores[i]; }
+    public int size()          { return scores.length; }
+
+    // This is the part you are asked to write.
+    public int countAbove(int limit) {
+        int count = 0;
+        for (int i = 0; i &lt; size(); i++) {       // given method, not scores.length
+            if (getScore(i) &gt; limit) count++;    // given method, not scores[i]
+        }
+        return count;
+    }
+}</template></tb-runner></figure>
+<p>Reaching into <code>scores</code> directly would work here, and on the exam it can cost a
+point when the specification says to use the accessor — the rubric sometimes
+names it.</p>
+<h2 id="the-errors-that-lose-points-on-correct-logic" tabindex="-1">The errors that lose points on correct logic</h2>
+<figure class="widget"><tb-runner data-run="1"><figcaption class="code__title">Four things that cost marks</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">1</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 2</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 3</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // 1. length vs length() vs size()</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">array:     </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">length</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">String:    </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77"> "</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">abc</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">length</span><span style="--sh-light:#999999;--sh-dark:#666666">());</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">ArrayList: </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> java</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">util</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">ArrayList</span><span style="--sh-light:#999999;--sh-dark:#666666">&#x3C;>(</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">java</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">util</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">List</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">of</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">1</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">2</span><span style="--sh-light:#999999;--sh-dark:#666666">)).</span><span style="--sh-light:#59873A;--sh-dark:#80A665">size</span><span style="--sh-light:#999999;--sh-dark:#666666">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // 2. Returning from the right place — inside the loop returns too early.</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">all positive (correct): </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> allPositive</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">a</span><span style="--sh-light:#999999;--sh-dark:#666666">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // 3. Comparing objects with == instead of .equals</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        String</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> s</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> String</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">hi</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">== : </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">s </span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">==</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77"> "</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">hi</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77"> "</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">   .equals : </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> s</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">equals</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">hi</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#999999;--sh-dark:#666666">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // 4. Off-by-one at the top of a loop</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> last</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">a</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">length</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> -</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 1</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">last element: </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> last</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> boolean</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> allPositive</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">        for</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> v</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> :</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">            if</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">v </span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">&#x3C;=</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 0</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> return</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> false</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">    // a failure is decided immediately</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">        }</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">        return</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> true</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">                     // success only after the whole loop</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">public class Main {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+
+        // 1. length vs length() vs size()
+        System.out.println(&quot;array:     &quot; + a.length);
+        System.out.println(&quot;String:    &quot; + &quot;abc&quot;.length());
+        System.out.println(&quot;ArrayList: &quot; + new java.util.ArrayList&lt;&gt;(java.util.List.of(1,2)).size());
+
+        // 2. Returning from the right place — inside the loop returns too early.
+        System.out.println(&quot;all positive (correct): &quot; + allPositive(a));
+
+        // 3. Comparing objects with == instead of .equals
+        String s = new String(&quot;hi&quot;);
+        System.out.println(&quot;== : &quot; + (s == &quot;hi&quot;) + &quot;   .equals : &quot; + s.equals(&quot;hi&quot;));
+
+        // 4. Off-by-one at the top of a loop
+        int last = a[a.length - 1];
+        System.out.println(&quot;last element: &quot; + last);
+    }
+
+    static boolean allPositive(int[] a) {
+        for (int v : a) {
+            if (v &lt;= 0) return false;    // a failure is decided immediately
+        }
+        return true;                     // success only after the whole loop
+    }
+}</template></tb-runner></figure>
+<p>That <code>allPositive</code> structure is worth memorising: <strong>return false inside the loop,
+return true after it.</strong> Putting <code>return true</code> inside answers after the first
+element, which is the commonest logic error on FRQ 1.</p>
+<h2 id="writing-without-a-compiler" tabindex="-1">Writing without a compiler</h2>
+<p>The exam is digital now, in Bluebook, but it does not compile your code. Four
+habits that matter more without a compiler:</p>
+<ul>
+<li><strong>Declare every variable</strong>, with its type. <code>for (i = 0; ...)</code> is a compile
+error and a lost point.</li>
+<li><strong>Match your braces as you write them</strong> — open and close together, then fill
+in.</li>
+<li><strong>Check your method signature against the specification</strong>, exactly: name,
+return type, parameter types and order.</li>
+<li><strong>Reread the return type.</strong> A method declared <code>int</code> that ends without
+returning on some path does not compile.</li>
+</ul>
+<h2 id="time" tabindex="-1">Time</h2>
+<p>Roughly 22 minutes each. A practical split:</p>
+<ul>
+<li><strong>2 minutes reading</strong>, including the parts you are not on yet — later parts
+often clarify earlier ones.</li>
+<li><strong>15 minutes writing.</strong></li>
+<li><strong>5 minutes checking</strong> — trace your loop on a two-element example and on an
+empty one.</li>
+</ul>
+<p>If a part will not come, <strong>move on and come back</strong>. Four questions each worth
+the same means a fourth question left blank costs far more than a weak part ©.</p>
+<tb-quiz><template data-role="spec">{
+  &quot;question&quot;: &quot;On FRQ part (b) you must use a method written in part (a), but you think your part (a) is wrong. What should you do?&quot;,
+  &quot;options&quot;: [
+    {
+      &quot;text&quot;: &quot;Call your part (a) method as specified — part (b) is marked on its own logic&quot;,
+      &quot;correct&quot;: true,
+      &quot;why&quot;: &quot;Rubric points are awarded per part. Part (b) is assessed on whether it uses the method correctly, not on whether that method works. Reimplementing it wastes time and forfeits nothing you would otherwise keep.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Rewrite part (a)'s logic inside part (b) so it is correct&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;This costs time and can lose points where the rubric expects the method to be called. It also does not recover part (a)'s marks, which are already settled.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Leave part (b) blank, since it depends on broken code&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;A blank scores zero with certainty. Part (b)'s points are available regardless of what part (a) does.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Write a note explaining that part (a) may be wrong&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;Readers mark code against a rubric, not explanations. The minute spent writing the note is better spent on the code.&quot;
+    }
+  ]
+}</template></tb-quiz>
+<aside class="callout callout--recap"><p class="callout__label">Recap</p>
+<ul>
+<li>Four questions, 45%, marked per rubric point — partial credit is the norm.</li>
+<li>Never leave a part blank; a partly correct attempt collects the points it
+earns.</li>
+<li>Call your own earlier methods even if you doubt them. Later parts are marked
+on their own logic.</li>
+<li>Use the helper methods the specification provides rather than reaching into
+fields.</li>
+<li><code>return false</code> inside the loop, <code>return true</code> after it.</li>
+<li>About 22 minutes per question, and move on rather than stalling.</li>
+</ul>
+</aside>
+
+    <nav class="pager" aria-label="Chapter navigation"><a class="pager__link pager__link--prev" href="/CsaTB/data-collections/recursion/">
+           <span class="pager__dir">Previous</span>
+           <span class="pager__title">Recursion</span>
+         </a><span></span></nav>
+  </article>
+    </main>
+    <aside class="rail">
+    <div class="rail__inner">
+      <p class="rail__title">On this page</p><ul class="rail__list" id="rail-list"><li class="rail__item rail__item--h2"><a href="#the-four-types">The four types</a></li><li class="rail__item rail__item--h2"><a href="#rubric-points-not-right-answers">Rubric points, not right answers</a></li><li class="rail__item rail__item--h2"><a href="#use-the-methods-you-are-given">Use the methods you are given</a></li><li class="rail__item rail__item--h2"><a href="#the-errors-that-lose-points-on-correct-logic">The errors that lose points on correct logic</a></li><li class="rail__item rail__item--h2"><a href="#writing-without-a-compiler">Writing without a compiler</a></li><li class="rail__item rail__item--h2"><a href="#time">Time</a></li></ul>
+      <div class="rail__meta">
+        <p><span>Standard</span><code>java21</code></p>
+        <p><span>Reading</span>4 min</p>
+        
+      </div>
+      <button class="rail__done" data-chapter="free-response" id="mark-done">Mark as read</button>
+    </div>
+  </aside>
+  </div>
+  <div class="scrim" id="scrim" hidden></div>
+  <script type="module" src="/CsaTB/assets/index-B-kM7kne.js"></script>
+</body>
+</html>

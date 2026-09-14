@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quick reference · The Java Textbook</title>
+  <meta name="description" content="Every chapter objective in one scannable table — find your level and continue.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/CsaTB/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('tb-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="/CsaTB/assets/index-DU6-oSWJ.css">
+</head>
+<body class="">
+  <header class="topbar">
+  <button class="topbar__menu" id="menu-toggle" aria-label="Toggle contents" aria-expanded="false">
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+  </button>
+  <a class="topbar__brand" href="/CsaTB/">The Java Textbook</a>
+  <div class="topbar__spacer"></div>
+  <button class="search-trigger" id="search-trigger" aria-label="Search the book">
+    <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span>Search</span><kbd>/</kbd>
+  </button>
+  <button class="icon-button" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+    <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 1 0 7.5 7.5A6 6 0 0 1 10 2.5Z" fill="currentColor"/></svg>
+  </button>
+</header>
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Book contents">
+  <div class="sidebar__inner">
+    <a class="sidebar__link" href="/CsaTB/">Start here</a>
+    <a class="sidebar__link" href="/CsaTB/practice/">Practice problems</a>
+    <a class="sidebar__link" href="/CsaTB/reference/">Quick reference</a>
+    <a class="sidebar__link" href="/CsaTB/progress/">Progress</a>
+    <hr class="sidebar__rule">
+    <details class="nav__part"><summary><span class="nav__part-num">Part 1</span>Using Objects and Methods</summary><ul class="nav__list"><li><a href="/CsaTB/objects-and-methods/primitives-and-arithmetic/"><span class="nav__num">1.1</span><span class="nav__text">Primitives</span></a></li><li><a href="/CsaTB/objects-and-methods/references/"><span class="nav__num">1.2</span><span class="nav__text">References</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 2</span>Selection and Iteration</summary><ul class="nav__list"><li><a href="/CsaTB/selection-and-iteration/boolean-expressions/"><span class="nav__num">2.1</span><span class="nav__text">Boolean expressions</span></a></li><li><a href="/CsaTB/selection-and-iteration/loops/"><span class="nav__num">2.2</span><span class="nav__text">Loops</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 3</span>Class Creation</summary><ul class="nav__list"><li><a href="/CsaTB/class-creation/writing-a-class/"><span class="nav__num">3.1</span><span class="nav__text">Writing a class</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 4</span>Data Collections</summary><ul class="nav__list"><li><a href="/CsaTB/data-collections/arrays/"><span class="nav__num">4.1</span><span class="nav__text">Arrays</span></a></li><li><a href="/CsaTB/data-collections/arraylist/"><span class="nav__num">4.2</span><span class="nav__text">ArrayList</span></a></li><li><a href="/CsaTB/data-collections/two-d-arrays/"><span class="nav__num">4.3</span><span class="nav__text">2-D arrays</span></a></li><li><a href="/CsaTB/data-collections/searching-and-sorting/"><span class="nav__num">4.4</span><span class="nav__text">Search and sort</span></a></li><li><a href="/CsaTB/data-collections/recursion/"><span class="nav__num">4.5</span><span class="nav__text">Recursion</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 5</span>The exam itself</summary><ul class="nav__list"><li><a href="/CsaTB/the-exam/free-response/"><span class="nav__num">5.1</span><span class="nav__text">Free response</span></a></li></ul></details>
+  </div>
+</nav>
+    <main class="content" id="content">
+      <article class="prose prose--wide">
+    <h1>Quick reference</h1>
+    <p class="chapter-lede">Every chapter's objectives in one place. Use it to find where you are: scan for the first row you cannot honestly claim, and start there.</p>
+    <section class="ref-part">
+        <h2>Using Objects and Methods</h2>
+        <table class="ref-table">
+          <thead><tr><th>Chapter</th><th>You should be able to</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr>
+                  <td><a href="/CsaTB/objects-and-methods/primitives-and-arithmetic/">Primitives</a></td>
+                  <td><ul><li>Predict the result of integer division and modulus</li><li>Explain when a cast is needed and where to put it</li><li>Recognise integer overflow</li><li>Say why floating-point comparisons fail</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/objects-and-methods/references/">References</a></td>
+                  <td><ul><li>Say what an object variable actually stores</li><li>Predict when assigning one variable to another creates an alias</li><li>Explain why a method can change an object but cannot change which object you have</li><li>Recognise null, and say where a NullPointerException comes from</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr>
+          </tbody>
+        </table>
+      </section><section class="ref-part">
+        <h2>Selection and Iteration</h2>
+        <table class="ref-table">
+          <thead><tr><th>Chapter</th><th>You should be able to</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr>
+                  <td><a href="/CsaTB/selection-and-iteration/boolean-expressions/">Boolean expressions</a></td>
+                  <td><ul><li>Evaluate a compound boolean expression by hand</li><li>Explain what short-circuit evaluation does and when it matters</li><li>Apply De Morgan's laws to simplify a negated condition</li><li>Avoid the == versus .equals trap on objects</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/selection-and-iteration/loops/">Loops</a></td>
+                  <td><ul><li>Trace a loop by hand and produce its output</li><li>Count how many times a loop body executes</li><li>Convert between for and while</li><li>Recognise the off-by-one and the infinite loop</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr>
+          </tbody>
+        </table>
+      </section><section class="ref-part">
+        <h2>Class Creation</h2>
+        <table class="ref-table">
+          <thead><tr><th>Chapter</th><th>You should be able to</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr>
+                  <td><a href="/CsaTB/class-creation/writing-a-class/">Writing a class</a></td>
+                  <td><ul><li>Write fields, constructors, accessors and mutators from a specification</li><li>Use this to disambiguate a parameter from a field</li><li>Explain what private buys and why the exam insists on it</li><li>Write toString and know when it is called</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr>
+          </tbody>
+        </table>
+      </section><section class="ref-part">
+        <h2>Data Collections</h2>
+        <table class="ref-table">
+          <thead><tr><th>Chapter</th><th>You should be able to</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr>
+                  <td><a href="/CsaTB/data-collections/arrays/">Arrays</a></td>
+                  <td><ul><li>Declare, create and initialise an array</li><li>Traverse an array with both loop forms and know when each is usable</li><li>Avoid ArrayIndexOutOfBoundsException at both ends</li><li>Explain why an array parameter can be modified by a method</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/data-collections/arraylist/">ArrayList</a></td>
+                  <td><ul><li>Use the ArrayList methods the exam tests</li><li>Explain why an ArrayList holds objects rather than primitives</li><li>Remove elements while iterating without skipping any</li><li>Choose between an array and an ArrayList</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/data-collections/two-d-arrays/">2-D arrays</a></td>
+                  <td><ul><li>Declare and traverse a 2-D array in row-major order</li><li>Use the correct length for rows and columns</li><li>Traverse by column when a problem requires it</li><li>Explain why Java has no true 2-D array</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/data-collections/searching-and-sorting/">Search and sort</a></td>
+                  <td><ul><li>Implement linear and binary search</li><li>State the precondition binary search requires</li><li>Trace selection and insertion sort after a given number of passes</li><li>Compare the algorithms by number of comparisons</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr><tr>
+                  <td><a href="/CsaTB/data-collections/recursion/">Recursion</a></td>
+                  <td><ul><li>Identify the base case and the recursive case</li><li>Trace a recursive call by hand and produce its output</li><li>Explain why a missing base case causes StackOverflowError</li><li>Recognise recursion over arrays and strings</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr>
+          </tbody>
+        </table>
+      </section><section class="ref-part">
+        <h2>The exam itself</h2>
+        <table class="ref-table">
+          <thead><tr><th>Chapter</th><th>You should be able to</th><th>Standard</th></tr></thead>
+          <tbody>
+            <tr>
+                  <td><a href="/CsaTB/the-exam/free-response/">Free response</a></td>
+                  <td><ul><li>Recognise the four free-response types</li><li>Write an answer that collects partial credit</li><li>Avoid the errors that lose points on correct code</li><li>Budget time across the section</li></ul></td>
+                  <td><code>java21</code></td>
+                </tr>
+          </tbody>
+        </table>
+      </section>
+  </article>
+    </main>
+    <div class="rail" aria-hidden="true"></div>
+  </div>
+  <div class="scrim" id="scrim" hidden></div>
+  <script type="module" src="/CsaTB/assets/index-B-kM7kne.js"></script>
+</body>
+</html>
