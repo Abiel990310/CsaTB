@@ -4,9 +4,9 @@ An interactive AP Computer Science A textbook, on the same engine as CppTB and
 JavaTB. Every code sample is compiled by a real compiler and every practice
 problem is auto-graded.
 
-**Six chapters written** — 2.1 boolean expressions, plus most of Unit 4:
+**Eight chapters written** — 2.1 boolean expressions, plus most of Unit 4:
 arrays, ArrayList, 2-D arrays, searching and sorting, recursion. Chosen by exam
-weight rather than unit order, since Unit 4 alone is 30–40% of the score. 29
+weight rather than unit order, since Unit 4 alone is 30–40% of the score. 40
 samples, all compiling. `docs/ROADMAP.md` holds the rest.
 
 ## What the CED check found
