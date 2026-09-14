@@ -7,13 +7,19 @@ problem is auto-graded.
 **Nothing is written yet.** The engine is ported and builds; `docs/ROADMAP.md`
 holds the plan and the one thing that must happen before any chapter is written.
 
-## Before you write anything
+## What the CED check found
 
-`docs/ROADMAP.md` opens with an unticked item: **check the current CED.** The
-unit list in this repo was written from knowledge, not from the College Board's
-published Course and Exam Description, and AP CSA was revised for 2025–26. Do
-that check first and correct the roadmap. Building forty chapters on a stale
-outline is the expensive mistake here.
+Done 2026-09-14, and it mattered: the 2025–26 revision cut AP CSA from **ten
+units to four** and **removed inheritance from the course**. The outline this
+repo started with had both wrong. `docs/ROADMAP.md` now carries the corrected
+structure, the exam weightings, and a chapter plan proportioned to them.
+
+One thing is still open, and it is flagged at the top of that file: College
+Board's site is blocked by this environment's network egress, so the structure
+came from secondary sources rather than the official CED PDF. The four FRQ
+types in particular deserve confirmation — the source describing them also
+claims they are unchanged since 2004, which is a statement about the course
+that was just revised.
 
 ## The one rule
 

@@ -2,91 +2,115 @@
 
 Take the top unticked chapter. One chapter per session, one chapter per commit.
 
-## Read this before writing a single chapter
+## The CED check — done 2026-09-14, with a caveat
 
-**The unit list below is not yet verified against the current CED.** It is the
-ten-unit structure that AP Computer Science A carried for years, written down
-from knowledge rather than from the College Board's published Course and Exam
-Description. The College Board revised AP CSA for 2025–26, and the revision is
-believed to have changed both the unit arrangement and the free-response
-structure.
+The first version of this file carried a ten-unit outline written from memory.
+**It was substantially wrong.** The 2025–26 revision cut AP Computer Science A
+from ten units to four, and removed inheritance from the course entirely — a
+chapter the old outline had. Forty chapters built on that would have been the
+most expensive mistake available here.
 
-So, before Wave A is written:
+**Caveat on sourcing.** `apcentral.collegeboard.org` is blocked by this
+environment's network egress, so the structure below comes from secondary
+sources — prep publishers and teaching sites reporting on the revision — not
+from the official CED PDF. It is consistent across several of them, which is
+worth something, but it is not the primary document.
 
-- [ ] **Check the current CED.** Confirm the unit list, their order, their exam
-      weightings, and the number and type of free-response questions. Correct
-      this file, and record the date the check was made and what changed.
-- [ ] Confirm the Java subset the exam allows. AP CSA tests a deliberately small
-      slice of Java; teaching outside it is worse than useless, because it costs
-      the reader time on something the exam will not reward and may actively
-      penalise in a free-response answer.
+- [ ] **Confirm against the official CED PDF** when someone has a browser that
+      can reach College Board. Check especially the four FRQ types: the source
+      describing them ("Methods & Control Structures, Class Writing,
+      Array/ArrayList, 2D Array") also says they have run unchanged since 2004,
+      which is a claim about the *old* course. A revision that deleted a unit
+      may well have changed them, and that source would not show it.
 
-Until that check happens, treat every heading below as provisional. A forty-
-chapter book built on a stale outline is the most expensive mistake available
-here, and it is cheap to avoid by looking once.
+## The course, as revised for 2025–26
 
-## What this book is, and is not
+Four units. The weightings are the share of the exam score, and they are the
+single most useful fact in this file: they say where a reader's time is worth
+spending, and therefore how many chapters each unit earns.
 
-JavaTB teaches Java. **This book teaches the exam.** They overlap in syntax and
-in nothing else:
+| Unit | Weight | What it covers |
+|---|---|---|
+| 1 Using Objects and Methods | 15–25% | Java fundamentals, reference data, calling methods |
+| 2 Selection and Iteration | 25–35% | Conditionals, loops, algorithms built from repetition |
+| 3 Class Creation | 10–18% | Expressing behaviour and attributes as classes |
+| 4 Data Collections | 30–40% | Arrays, `ArrayList`, 2-D arrays, searching, sorting, recursion |
 
-- JavaTB can spend a chapter on why `HashMap` resizes. AP CSA does not test
-  `HashMap` at all, so this book does not have that chapter.
-- AP CSA tests things JavaTB treats as beneath mention — the exact output of a
-  `for` loop written to be confusing, the difference between `==` and `.equals`
-  on `Integer`, hand-tracing a recursive call. Those get chapters here.
-- Every problem here is shaped like an exam question, because the reader's goal
-  is a score, not craftsmanship. That is a legitimate goal and the book should
-  serve it honestly rather than pretend to be about something loftier.
+**Gone from the course:** inheritance and polymorphism, which the old Unit 9
+carried. The stated reason is closer alignment with introductory college
+courses. Do not write those chapters; link to JavaTB for readers who want them.
 
-Where a reader wants the deeper version, link across to JavaTB. That is what the
-hub is for.
+**Added:** text files and data sets.
 
-## Provisional unit structure
+## The exam
 
-Ten units, to be confirmed against the CED before anything is written.
+- **Section I** — 42 multiple-choice questions, four options each, 55% of the
+  score, roughly 2.1 minutes per question.
+- **Section II** — 4 free-response questions, 45% of the score.
+- **Digital.** From 2025–26 the exam is taken in College Board's Bluebook
+  application, not on paper. That changes what practice should feel like, and
+  it is a reason for this book to exist in a browser.
 
-### Wave A — the language the exam uses
+## Chapter plan
+
+Chapter counts follow the weightings rather than the unit numbering, which is
+why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
+
+### Wave A — Unit 1: Using Objects and Methods
 
 - [ ] 1.1 Primitive types, and the arithmetic that surprises you
-- [ ] 1.2 Using objects: references, constructors, and the String methods tested
-- [ ] 1.3 Boolean expressions and `if`
-- [ ] 1.4 Iteration, and tracing a loop by hand
-- [ ] 1.5 Writing classes: fields, constructors, accessors, mutators
+- [ ] 1.2 References: what a variable holds when it is not a number
+- [ ] 1.3 Calling methods, and reading a signature
+- [ ] 1.4 `String`, and the methods the exam actually tests
+- [ ] 1.5 The `Math` class, and integer division as a trap
 
-### Wave B — data
+### Wave B — Unit 2: Selection and Iteration
 
-- [ ] 2.1 Arrays
-- [ ] 2.2 `ArrayList`
-- [ ] 2.3 2-D arrays
-- [ ] 2.4 The standard algorithms the exam expects you to recognise
+- [ ] 2.1 Boolean expressions, short-circuiting, and De Morgan
+- [ ] 2.2 `if`, `else if`, and the dangling case
+- [ ] 2.3 Loops, and tracing one by hand
+- [ ] 2.4 Nested loops, and counting how many times the body runs
+- [ ] 2.5 `==` against `.equals`, which the exam asks every year
+- [ ] 2.6 Building an algorithm out of a loop
 
-### Wave C — the rest of the course
+### Wave C — Unit 3: Class Creation
 
-- [ ] 3.1 Inheritance, overriding, and polymorphism
-- [ ] 3.2 Recursion, and tracing it without a debugger
+- [ ] 3.1 Fields, constructors, and what `this` is for
+- [ ] 3.2 Accessors, mutators, and why the exam cares about encapsulation
+- [ ] 3.3 `static` against instance, and when each is right
 
-### Wave D — the exam itself
+### Wave D — Unit 4: Data Collections
 
-- [ ] 4.1 How the multiple-choice section is written, and how to read it
-- [ ] 4.2 The free-response types, one chapter each
-- [ ] 4.3 Scoring: what earns a point and what does not
+- [ ] 4.1 Arrays: declaring, filling, and going off the end
+- [ ] 4.2 Traversing an array, and the off-by-one
+- [ ] 4.3 `ArrayList`: what it adds, and the boxing that comes with it
+- [ ] 4.4 Removing while iterating, which is the classic wrong answer
+- [ ] 4.5 2-D arrays: row-major order and nested traversal
+- [ ] 4.6 Searching: linear and binary
+- [ ] 4.7 Sorting: selection, insertion, and merge
+- [ ] 4.8 Recursion, and tracing it without a debugger
+- [ ] 4.9 Text files and data sets
+
+### Wave E — the exam itself
+
+- [ ] 5.1 How a multiple-choice question is built, and how to read one
+- [ ] 5.2 FRQ 1: methods and control structures
+- [ ] 5.3 FRQ 2: writing a class
+- [ ] 5.4 FRQ 3: array and `ArrayList`
+- [ ] 5.5 FRQ 4: 2-D array
+- [ ] 5.6 Scoring: what earns a point and what does not
 
 ## Rules specific to this book
 
 - **Problems must be original.** Real College Board free-response and
   multiple-choice questions are copyrighted. Write to the same archetypes and
-  the same difficulty; never transcribe. This is not negotiable and it is much
-  cheaper to honour from chapter one than to retrofit across two hundred
-  problems.
+  the same difficulty; never transcribe. Cheaper to honour from chapter one
+  than to retrofit across two hundred problems.
 - **This is not an official College Board product** and must never imply it is.
-  One line in the README says so; nothing in the prose should contradict it.
 - **Teach the rubric, not just the answer.** AP free response is scored per
   rubric point, and "justify your answer" earns nothing without the reasoning.
-  A book that shows where the points are is worth more than one that shows a
-  correct program.
-- **Stay inside the tested subset.** When something useful is outside it, say
-  so in one line and link to JavaTB rather than teaching it here.
+- **Stay inside the tested subset.** When something useful is outside it — the
+  whole of inheritance, now — say so in one line and link to JavaTB.
 
 ## Standing work
 
