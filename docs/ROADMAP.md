@@ -66,7 +66,7 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 
 ### Wave B — Unit 2: Selection and Iteration
 
-- [ ] 2.1 Boolean expressions, short-circuiting, and De Morgan
+- [x] 2.1 Boolean expressions, short-circuiting, and De Morgan
 - [ ] 2.2 `if`, `else if`, and the dangling case
 - [ ] 2.3 Loops, and tracing one by hand
 - [ ] 2.4 Nested loops, and counting how many times the body runs
@@ -81,9 +81,9 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 
 ### Wave D — Unit 4: Data Collections
 
-- [ ] 4.1 Arrays: declaring, filling, and going off the end
+- [x] 4.1 Arrays: declaring, filling, and going off the end
 - [ ] 4.2 Traversing an array, and the off-by-one
-- [ ] 4.3 `ArrayList`: what it adds, and the boxing that comes with it
+- [x] 4.3 `ArrayList`: what it adds, and the boxing that comes with it
 - [ ] 4.4 Removing while iterating, which is the classic wrong answer
 - [ ] 4.5 2-D arrays: row-major order and nested traversal
 - [ ] 4.6 Searching: linear and binary

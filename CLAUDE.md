@@ -4,8 +4,10 @@ An interactive AP Computer Science A textbook, on the same engine as CppTB and
 JavaTB. Every code sample is compiled by a real compiler and every practice
 problem is auto-graded.
 
-**Nothing is written yet.** The engine is ported and builds; `docs/ROADMAP.md`
-holds the plan and the one thing that must happen before any chapter is written.
+**Three chapters written** — 2.1 boolean expressions, 4.1 arrays, 4.2
+ArrayList — chosen by exam weight rather than unit order, since Unit 4 alone is
+30–40% of the score. 15 samples, all compiling. `docs/ROADMAP.md` holds the
+rest.
 
 ## What the CED check found
 
