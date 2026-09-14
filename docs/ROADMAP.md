@@ -85,10 +85,10 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 - [ ] 4.2 Traversing an array, and the off-by-one
 - [x] 4.3 `ArrayList`: what it adds, and the boxing that comes with it
 - [ ] 4.4 Removing while iterating, which is the classic wrong answer
-- [ ] 4.5 2-D arrays: row-major order and nested traversal
-- [ ] 4.6 Searching: linear and binary
-- [ ] 4.7 Sorting: selection, insertion, and merge
-- [ ] 4.8 Recursion, and tracing it without a debugger
+- [x] 4.5 2-D arrays: row-major order and nested traversal
+- [x] 4.6 Searching: linear and binary
+- [x] 4.7 Sorting: selection and insertion (merge is not in the tested subset)
+- [x] 4.8 Recursion, and tracing it without a debugger
 - [ ] 4.9 Text files and data sets
 
 ### Wave E — the exam itself
