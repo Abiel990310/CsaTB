@@ -61,7 +61,7 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 - [x] 1.1 Primitive types, and the arithmetic that surprises you
 - [x] 1.2 References: what a variable holds when it is not a number
 - [x] 1.3 Calling methods, and reading a signature
-- [ ] 1.4 `String`, and the methods the exam actually tests
+- [x] 1.4 `String`, and the methods the exam actually tests
 - [ ] 1.5 The `Math` class, and integer division as a trap
 
 ### Wave B — Unit 2: Selection and Iteration
