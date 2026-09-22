@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>References: what a variable holds when it is not a number · The Java Textbook</title>
+  <meta name="description" content="Two variables can name the same object, and changing one changes the other. Everything surprising about objects on this exam comes from that.">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="/CsaTB/favicon.svg" type="image/svg+xml">
+  <script>(function(){try{var t=localStorage.getItem('tb-theme');if(!t){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+  <link rel="stylesheet" href="/CsaTB/assets/index-DU6-oSWJ.css">
+</head>
+<body class="">
+  <header class="topbar">
+  <button class="topbar__menu" id="menu-toggle" aria-label="Toggle contents" aria-expanded="false">
+    <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+  </button>
+  <a class="topbar__brand" href="/CsaTB/">The Java Textbook</a>
+  <div class="topbar__spacer"></div>
+  <button class="search-trigger" id="search-trigger" aria-label="Search the book">
+    <svg viewBox="0 0 20 20" width="15" height="15" aria-hidden="true"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.6" fill="none"/><path d="M13 13l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span>Search</span><kbd>/</kbd>
+  </button>
+  <button class="icon-button" id="theme-toggle" aria-label="Switch theme" title="Switch theme">
+    <svg viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="M10 2.5a7.5 7.5 0 1 0 7.5 7.5A6 6 0 0 1 10 2.5Z" fill="currentColor"/></svg>
+  </button>
+</header>
+  <div class="layout">
+    <nav class="sidebar" id="sidebar" aria-label="Book contents">
+  <div class="sidebar__inner">
+    <a class="sidebar__link" href="/CsaTB/">Start here</a>
+    <a class="sidebar__link" href="/CsaTB/practice/">Practice problems</a>
+    <a class="sidebar__link" href="/CsaTB/reference/">Quick reference</a>
+    <a class="sidebar__link" href="/CsaTB/progress/">Progress</a>
+    <hr class="sidebar__rule">
+    <details class="nav__part" open><summary><span class="nav__part-num">Part 1</span>Using Objects and Methods</summary><ul class="nav__list"><li><a href="/CsaTB/objects-and-methods/primitives-and-arithmetic/"><span class="nav__num">1.1</span><span class="nav__text">Primitives</span></a></li><li><a href="/CsaTB/objects-and-methods/references/" class="is-active" aria-current="page"><span class="nav__num">1.2</span><span class="nav__text">References</span></a></li><li><a href="/CsaTB/objects-and-methods/calling-methods/"><span class="nav__num">1.3</span><span class="nav__text">Calling methods</span></a></li><li><a href="/CsaTB/objects-and-methods/strings/"><span class="nav__num">1.4</span><span class="nav__text">String</span></a></li><li><a href="/CsaTB/objects-and-methods/math-class/"><span class="nav__num">1.5</span><span class="nav__text">The Math class</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 2</span>Selection and Iteration</summary><ul class="nav__list"><li><a href="/CsaTB/selection-and-iteration/boolean-expressions/"><span class="nav__num">2.1</span><span class="nav__text">Boolean expressions</span></a></li><li><a href="/CsaTB/selection-and-iteration/loops/"><span class="nav__num">2.2</span><span class="nav__text">Loops</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 3</span>Class Creation</summary><ul class="nav__list"><li><a href="/CsaTB/class-creation/writing-a-class/"><span class="nav__num">3.1</span><span class="nav__text">Writing a class</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 4</span>Data Collections</summary><ul class="nav__list"><li><a href="/CsaTB/data-collections/arrays/"><span class="nav__num">4.1</span><span class="nav__text">Arrays</span></a></li><li><a href="/CsaTB/data-collections/arraylist/"><span class="nav__num">4.2</span><span class="nav__text">ArrayList</span></a></li><li><a href="/CsaTB/data-collections/two-d-arrays/"><span class="nav__num">4.3</span><span class="nav__text">2-D arrays</span></a></li><li><a href="/CsaTB/data-collections/searching-and-sorting/"><span class="nav__num">4.4</span><span class="nav__text">Search and sort</span></a></li><li><a href="/CsaTB/data-collections/recursion/"><span class="nav__num">4.5</span><span class="nav__text">Recursion</span></a></li></ul></details><details class="nav__part"><summary><span class="nav__part-num">Part 5</span>The exam itself</summary><ul class="nav__list"><li><a href="/CsaTB/the-exam/free-response/"><span class="nav__num">5.1</span><span class="nav__text">Free response</span></a></li></ul></details>
+  </div>
+</nav>
+    <main class="content" id="content">
+      <article class="prose" data-chapter="references">
+    <div class="chapter-head">
+      <p class="chapter-eyebrow"><a href="/CsaTB/objects-and-methods/">Part 1 · Using Objects and Methods</a></p>
+      <h1>References: what a variable holds when it is not a number</h1>
+      <p class="chapter-lede">Two variables can name the same object, and changing one changes the other. Everything surprising about objects on this exam comes from that.</p>
+    </div>
+    
+    <section class="objectives">
+    <h2 class="objectives__title">By the end of this chapter you can</h2>
+    <ul><li>Say what an object variable actually stores</li><li>Predict when assigning one variable to another creates an alias</li><li>Explain why a method can change an object but cannot change which object you have</li><li>Recognise null, and say where a NullPointerException comes from</li></ul>
+  </section>
+    <p>Chapter 1.1 was about variables that hold numbers. A variable of primitive type
+holds its value, and copying it copies the value — <code>int b = a;</code> gives you a
+second, independent number.</p>
+<p>Objects do not work that way, and almost every question on this exam that looks
+like a trick is the same fact wearing a different hat: <strong>an object variable does
+not hold the object. It holds a reference to it</strong>, and copying the variable
+copies the reference, not the thing.</p>
+<figure class="widget"><tb-runner data-run="1"><figcaption class="code__title">The same fact, twice</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">1</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 2</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 3</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> b</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">          // copies the reference, not the array</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        b</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 99</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">a[0] = </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">   // 99 — a and b are one array</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> x</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 1</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> y</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> x</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">            // copies the value</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        y </span><span style="--sh-light:#999999;--sh-dark:#666666">=</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 99</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">x = </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> x</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">         // 1 — x and y are two numbers</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">public class Main {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+        int[] b = a;          // copies the reference, not the array
+        b[0] = 99;
+        System.out.println(&quot;a[0] = &quot; + a[0]);   // 99 — a and b are one array
+
+        int x = 1;
+        int y = x;            // copies the value
+        y = 99;
+        System.out.println(&quot;x = &quot; + x);         // 1 — x and y are two numbers
+    }
+}</template></tb-runner></figure>
+<p>Nothing about <code>=</code> changed between those two halves. What changed is what was
+sitting in the variable.</p>
+<h2 id="two-names-one-object" tabindex="-1">Two names, one object</h2>
+<p>When two variables refer to the same object they are <strong>aliases</strong>. There is only
+one object; there are two ways to reach it, and a change made through either is
+visible through both.</p>
+<figure class="widget"><tb-memviz><template data-role="spec">{
+  &quot;title&quot;: &quot;int[] b = a — one array, two names&quot;,
+  &quot;steps&quot;: [
+    {
+      &quot;caption&quot;: &quot;int[] a = {1, 2, 3}; — the array lives on the heap, a holds a reference to it.&quot;,
+      &quot;stack&quot;: [{ &quot;id&quot;: &quot;a&quot;, &quot;name&quot;: &quot;a&quot;, &quot;type&quot;: &quot;int[]&quot;, &quot;value&quot;: &quot;ref&quot;, &quot;anchor&quot;: &quot;a&quot; }],
+      &quot;heap&quot;: [{ &quot;id&quot;: &quot;arr&quot;, &quot;name&quot;: &quot;the array&quot;, &quot;state&quot;: &quot;new&quot;, &quot;fields&quot;: [
+        { &quot;k&quot;: &quot;[0]&quot;, &quot;v&quot;: &quot;1&quot; }, { &quot;k&quot;: &quot;[1]&quot;, &quot;v&quot;: &quot;2&quot; }, { &quot;k&quot;: &quot;[2]&quot;, &quot;v&quot;: &quot;3&quot; }
+      ]}],
+      &quot;arrows&quot;: [{ &quot;from&quot;: &quot;a&quot;, &quot;to&quot;: &quot;arr&quot; }]
+    },
+    {
+      &quot;caption&quot;: &quot;int[] b = a; — b gets a copy of the reference. No array is created.&quot;,
+      &quot;stack&quot;: [
+        { &quot;id&quot;: &quot;a&quot;, &quot;name&quot;: &quot;a&quot;, &quot;type&quot;: &quot;int[]&quot;, &quot;value&quot;: &quot;ref&quot; },
+        { &quot;id&quot;: &quot;b&quot;, &quot;name&quot;: &quot;b&quot;, &quot;type&quot;: &quot;int[]&quot;, &quot;value&quot;: &quot;ref&quot;, &quot;state&quot;: &quot;new&quot; }
+      ],
+      &quot;heap&quot;: [{ &quot;id&quot;: &quot;arr&quot;, &quot;name&quot;: &quot;the array&quot;, &quot;fields&quot;: [
+        { &quot;k&quot;: &quot;[0]&quot;, &quot;v&quot;: &quot;1&quot; }, { &quot;k&quot;: &quot;[1]&quot;, &quot;v&quot;: &quot;2&quot; }, { &quot;k&quot;: &quot;[2]&quot;, &quot;v&quot;: &quot;3&quot; }
+      ]}],
+      &quot;arrows&quot;: [{ &quot;from&quot;: &quot;a&quot;, &quot;to&quot;: &quot;arr&quot; }, { &quot;from&quot;: &quot;b&quot;, &quot;to&quot;: &quot;arr&quot; }]
+    },
+    {
+      &quot;caption&quot;: &quot;b[0] = 99; — follows b's reference to the one array and writes there.&quot;,
+      &quot;stack&quot;: [
+        { &quot;id&quot;: &quot;a&quot;, &quot;name&quot;: &quot;a&quot;, &quot;type&quot;: &quot;int[]&quot;, &quot;value&quot;: &quot;ref&quot; },
+        { &quot;id&quot;: &quot;b&quot;, &quot;name&quot;: &quot;b&quot;, &quot;type&quot;: &quot;int[]&quot;, &quot;value&quot;: &quot;ref&quot; }
+      ],
+      &quot;heap&quot;: [{ &quot;id&quot;: &quot;arr&quot;, &quot;name&quot;: &quot;the array&quot;, &quot;state&quot;: &quot;danger&quot;, &quot;fields&quot;: [
+        { &quot;k&quot;: &quot;[0]&quot;, &quot;v&quot;: &quot;99&quot; }, { &quot;k&quot;: &quot;[1]&quot;, &quot;v&quot;: &quot;2&quot; }, { &quot;k&quot;: &quot;[2]&quot;, &quot;v&quot;: &quot;3&quot; }
+      ]}],
+      &quot;arrows&quot;: [{ &quot;from&quot;: &quot;a&quot;, &quot;to&quot;: &quot;arr&quot; }, { &quot;from&quot;: &quot;b&quot;, &quot;to&quot;: &quot;arr&quot; }],
+      &quot;note&quot;: &quot;a[0] is 99 as well, because there is no second array to be unchanged.&quot;
+    }
+  ]
+}</template></tb-memviz></figure>
+<p>The question “does <code>a</code> change?” is the wrong question. There is one array. It
+changed, and both names see it.</p>
+<h2 id="copying-for-real" tabindex="-1">Copying for real</h2>
+<p>If you want two independent arrays you have to say so. Assignment will never do
+it for you.</p>
+<figure class="widget"><tb-runner data-run="1"><figcaption class="code__title">A copy is a loop, or a library call</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">1</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 2</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 3</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> alias</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">                        // same array</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> copy</span><span style="--sh-light:#999999;--sh-dark:#666666">  =</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">a</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">length</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // a genuinely different array</span></span>
+<span class="line"><span style="--sh-light:#1E754F;--sh-dark:#4D9375">        for</span><span style="--sh-light:#999999;--sh-dark:#666666"> (</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> i</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 0</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> i </span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">&#x3C;</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">length</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> i</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">++</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">            copy</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">i</span><span style="--sh-light:#999999;--sh-dark:#666666">]</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> a</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">i</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        a</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 99</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">alias[0] = </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> alias</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">   // 99</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">copy[0]  = </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> copy</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">    // 1</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3};
+
+        int[] alias = a;                        // same array
+        int[] copy  = new int[a.length];        // a genuinely different array
+        for (int i = 0; i &lt; a.length; i++) {
+            copy[i] = a[i];
+        }
+
+        a[0] = 99;
+        System.out.println(&quot;alias[0] = &quot; + alias[0]);   // 99
+        System.out.println(&quot;copy[0]  = &quot; + copy[0]);    // 1
+    }
+}</template></tb-runner></figure>
+<p>The loop is what the exam expects you to be able to write. <code>Arrays.copyOf</code> does
+the same job in one line, but the free-response section asks you to produce the
+loop often enough that it is worth having in your fingers.</p>
+<aside class="callout callout--pitfall"><p class="callout__label">Pitfall</p>
+<p><strong><code>new</code> is the only thing that makes an object.</strong> If a line does not contain
+<code>new</code> (or call something that does, like <code>Arrays.copyOf</code> or <code>substring</code>), no
+new object came into existence on that line, whatever it looks like.</p>
+<p>Scan a question for <code>new</code>. Count them. That is how many objects there are, and
+every other variable is another name for one of them.</p>
+</aside>
+<h2 id="passing-an-object-to-a-method" tabindex="-1">Passing an object to a method</h2>
+<p>Java passes arguments <strong>by value</strong> — always, with no exceptions. The subtlety is
+that when the argument is an object variable, the value being copied is the
+reference.</p>
+<p>That gives a method exactly one power and denies it another.</p>
+<figure class="widget"><tb-runner data-run="1"><figcaption class="code__title">What a method can and cannot do</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> modify</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> data</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        data</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 99</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">              // works — follows the reference to the array</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> replace</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> data</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">        data </span><span style="--sh-light:#999999;--sh-dark:#666666">=</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]{</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">7</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 7</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 7</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD"> // useless — rebinds this method's own variable</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        int</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> nums</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">1</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 2</span><span style="--sh-light:#999999;--sh-dark:#666666">,</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91"> 3</span><span style="--sh-light:#999999;--sh-dark:#666666">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#59873A;--sh-dark:#80A665">        modify</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">nums</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">after modify:  </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> nums</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">   // 99</span></span>
+<span class="line"></span>
+<span class="line"><span style="--sh-light:#59873A;--sh-dark:#80A665">        replace</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">nums</span><span style="--sh-light:#999999;--sh-dark:#666666">);</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">after replace: </span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> +</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE"> nums</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">   // still 99</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">public class Main {
+    static void modify(int[] data) {
+        data[0] = 99;              // works — follows the reference to the array
+    }
+
+    static void replace(int[] data) {
+        data = new int[]{7, 7, 7}; // useless — rebinds this method's own variable
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 2, 3};
+
+        modify(nums);
+        System.out.println(&quot;after modify:  &quot; + nums[0]);   // 99
+
+        replace(nums);
+        System.out.println(&quot;after replace: &quot; + nums[0]);   // still 99
+    }
+}</template></tb-runner></figure>
+<p><strong>A method can change the object you handed it.</strong> It cannot change which object
+your variable refers to.</p>
+<p><code>modify</code> follows the reference and writes to the array that both names point at,
+so the caller sees it. <code>replace</code> assigns to <code>data</code>, which is a local variable
+holding a copy of the reference; the copy now points somewhere else and the
+caller’s variable has not moved. When <code>replace</code> returns, its local variable is
+gone and the new array is garbage.</p>
+<aside class="callout callout--note"><p class="callout__label">Note</p>
+<p>This is why “Java passes objects by reference” is a claim worth refusing, even
+though it predicts the first half correctly. It predicts <code>replace</code> wrongly. The
+accurate statement — the reference is passed by value — predicts both.</p>
+</aside>
+<h2 id="null" tabindex="-1">null</h2>
+<p>A reference variable can hold <code>null</code>, meaning <em>refers to nothing</em>. It is a
+legal value, it is what object fields start as, and touching anything through it
+fails.</p>
+<figure class="widget"><tb-runner data-run="1" data-expect-throw="1"><figcaption class="code__title">The exception you will see most</figcaption><div data-role="rendered"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> class</span><span style="--sh-light:#2E8F82;--sh-dark:#5DA994"> Main</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">    public</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> static</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> void</span><span style="--sh-light:#59873A;--sh-dark:#80A665"> main</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> args</span><span style="--sh-light:#999999;--sh-dark:#666666">)</span><span style="--sh-light:#999999;--sh-dark:#666666"> {</span></span>
+<span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">        String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> names</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> String</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">3</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">        // three slots, all null</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">names</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]);</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">          // prints "null" — fine</span></span>
+<span class="line"><span style="--sh-light:#B07D48;--sh-dark:#BD976A">        System</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A">out</span><span style="--sh-light:#999999;--sh-dark:#666666">.</span><span style="--sh-light:#59873A;--sh-dark:#80A665">println</span><span style="--sh-light:#999999;--sh-dark:#666666">(</span><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">names</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">].</span><span style="--sh-light:#59873A;--sh-dark:#80A665">length</span><span style="--sh-light:#999999;--sh-dark:#666666">());</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD"> // dies here</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">    }</span></span>
+<span class="line"><span style="--sh-light:#999999;--sh-dark:#666666">}</span></span></code></pre></div><template data-role="source">public class Main {
+    public static void main(String[] args) {
+        String[] names = new String[3];        // three slots, all null
+        System.out.println(names[0]);          // prints &quot;null&quot; — fine
+        System.out.println(names[0].length()); // dies here
+    }
+}</template></tb-runner></figure>
+<p>That sample is verified to throw, which is the point: <code>new String[3]</code> creates
+the array but not any strings. The slots hold <code>null</code> until you put something in
+them, and <code>null.length()</code> is a <code>NullPointerException</code>.</p>
+<p>The distinction worth holding on to:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>int[] a = new int[3]</code></th>
+<th><code>String[] s = new String[3]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>What the slots hold</td>
+<td>the number <code>0</code></td>
+<td><code>null</code></td>
+</tr>
+<tr>
+<td>Usable immediately</td>
+<td>yes</td>
+<td>no — fill them first</td>
+</tr>
+</tbody>
+</table>
+<p>Primitive arrays arrive usable because <code>0</code> is a real number. Object arrays
+arrive empty, because a reference to nothing is the only sensible default.</p>
+<aside class="callout callout--warning"><p class="callout__label">Undefined behaviour</p>
+<p>An array of objects needs <strong>two</strong> allocations: one for the array, then one per
+element. Forgetting the second is the standard way to produce a
+<code>NullPointerException</code> in a free-response answer.</p>
+<figure class="code"><pre class="shiki shiki-themes vitesse-light vitesse-dark" style="--sh-light:#393a34;--sh-dark:#dbd7caee;--sh-light-bg:#ffffff;--sh-dark-bg:#121212" tabindex="0"><code><span class="line"><span style="--sh-light:#AB5959;--sh-dark:#CB7676">String</span><span style="--sh-light:#999999;--sh-dark:#666666">[]</span><span style="--sh-light:#B07D48;--sh-dark:#BD976A"> words</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#1E754F;--sh-dark:#4D9375"> new</span><span style="--sh-light:#AB5959;--sh-dark:#CB7676"> String</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">3</span><span style="--sh-light:#999999;--sh-dark:#666666">];</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">   // the array exists</span></span>
+<span class="line"><span style="--sh-light:#393A34;--sh-dark:#DBD7CAEE">words</span><span style="--sh-light:#999999;--sh-dark:#666666">[</span><span style="--sh-light:#2F798A;--sh-dark:#4C9A91">0</span><span style="--sh-light:#999999;--sh-dark:#666666">]</span><span style="--sh-light:#999999;--sh-dark:#666666"> =</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77"> "</span><span style="--sh-light:#B56959;--sh-dark:#C98A7D">first</span><span style="--sh-light:#B5695977;--sh-dark:#C98A7D77">"</span><span style="--sh-light:#999999;--sh-dark:#666666">;</span><span style="--sh-light:#A0ADA0;--sh-dark:#758575DD">               // now slot 0 does too</span></span></code></pre></figure>
+</aside>
+<h2 id="check-yourself" tabindex="-1">Check yourself</h2>
+<tb-quiz><template data-role="spec">{
+  &quot;question&quot;: &quot;A method receives an int[] and does `arr = new int[]{9, 9}; arr[0] = 5;`. What does the caller's array look like afterwards?&quot;,
+  &quot;options&quot;: [
+    {
+      &quot;text&quot;: &quot;Unchanged — the method rebound its own local variable before touching anything&quot;,
+      &quot;correct&quot;: true,
+      &quot;why&quot;: &quot;The assignment made the local variable refer to a new array, so every later use of arr in that method is about the new one. The caller's variable still refers to the original, which nothing wrote to.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;Its first element is 5, since arrays are passed by reference&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;The reference is passed by value. Had the method written arr[0] = 5 without the reassignment, the caller would indeed see 5 — but the reassignment redirected the local variable first, so the write landed in the new array.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;It becomes {9, 9} with the first element changed to 5&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;That is what the new array holds, and the caller never receives it. A method cannot change which object the caller's variable refers to; it can only be returned.&quot;
+    },
+    {
+      &quot;text&quot;: &quot;A NullPointerException, because the original array was discarded&quot;,
+      &quot;correct&quot;: false,
+      &quot;why&quot;: &quot;Nothing is discarded on the caller's side. The caller's reference is still perfectly valid — it is the method's *new* array that becomes garbage when the method returns.&quot;
+    }
+  ]
+}</template></tb-quiz>
+<h2 id="practice" tabindex="-1">Practice</h2>
+<tb-exercise data-id="alias-or-copy"></tb-exercise>
+
+    <nav class="pager" aria-label="Chapter navigation"><a class="pager__link pager__link--prev" href="/CsaTB/objects-and-methods/primitives-and-arithmetic/">
+           <span class="pager__dir">Previous</span>
+           <span class="pager__title">Primitives and the arithmetic that surprises you</span>
+         </a><a class="pager__link pager__link--next" href="/CsaTB/objects-and-methods/calling-methods/">
+           <span class="pager__dir">Next</span>
+           <span class="pager__title">Calling methods, and reading a signature</span>
+         </a></nav>
+  </article>
+    </main>
+    <aside class="rail">
+    <div class="rail__inner">
+      <p class="rail__title">On this page</p><ul class="rail__list" id="rail-list"><li class="rail__item rail__item--h2"><a href="#two-names-one-object">Two names, one object</a></li><li class="rail__item rail__item--h2"><a href="#copying-for-real">Copying for real</a></li><li class="rail__item rail__item--h2"><a href="#passing-an-object-to-a-method">Passing an object to a method</a></li><li class="rail__item rail__item--h2"><a href="#null">null</a></li><li class="rail__item rail__item--h2"><a href="#check-yourself">Check yourself</a></li><li class="rail__item rail__item--h2"><a href="#practice">Practice</a></li></ul>
+      <div class="rail__meta">
+        <p><span>Standard</span><code>java21</code></p>
+        <p><span>Reading</span>7 min</p>
+        <p><span>Problems</span>2</p>
+      </div>
+      <button class="rail__done" data-chapter="references" id="mark-done">Mark as read</button>
+    </div>
+  </aside>
+  </div>
+  <div class="scrim" id="scrim" hidden></div>
+  <script type="module" src="/CsaTB/assets/index-B-kM7kne.js"></script>
+</body>
+</html>
