@@ -4,15 +4,22 @@ An interactive AP Computer Science A textbook, on the same engine as CppTB and
 JavaTB. Every code sample is compiled by a real compiler and every practice
 problem is auto-graded.
 
-**Thirteen chapters written**, across all four units — Unit 1 has primitives,
-references, calling methods and String, Unit 2 has boolean expressions and loops, Unit 3 has writing a
-class, and Unit 4 has all five: arrays, ArrayList, 2-D arrays, searching and
-sorting, recursion. Written by exam weight rather than unit order, which is why
-Unit 4 came first at 30–40% of the score.
+**Fourteen chapters written**, across all four units — Unit 1 has primitives,
+references, calling methods, String and the `Math` class, Unit 2 has boolean
+expressions and loops, Unit 3 has writing a class, and Unit 4 has all five:
+arrays, ArrayList, 2-D arrays, searching and sorting, recursion. Written by
+exam weight rather than unit order, which is why Unit 4 came first at 30–40%
+of the score.
 
-**Units 1 and 2 are now the thin ones** and are 40–60% between them — that is
-where the next chapters belong. 63 samples and 8 auto-graded problems, all
-verified. `docs/ROADMAP.md` holds the rest.
+**Unit 2 is now the thin one** at 25–35% on two chapters, and Unit 3 is thinner
+still in proportion — that is where the next chapters belong. 70 samples and 10
+auto-graded problems, all verified. `docs/ROADMAP.md` holds the rest.
+
+**Before writing a planned chapter, check it is not already written.** 1.5 was
+planned as "the `Math` class, and integer division as a trap"; 1.1 already owned
+integer division completely, so it was retitled rather than written twice. The
+verifiers cannot see a duplicate — both chapters compile green — and PhysTB
+shipped one for a week before anyone noticed.
 
 ## What the CED check found
 

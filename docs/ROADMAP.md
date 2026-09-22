@@ -62,7 +62,12 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
 - [x] 1.2 References: what a variable holds when it is not a number
 - [x] 1.3 Calling methods, and reading a signature
 - [x] 1.4 `String`, and the methods the exam actually tests
-- [ ] 1.5 The `Math` class, and integer division as a trap
+- [x] 1.5 The `Math` class, and choosing a number in a range — retitled: 1.1
+      already owns integer division (it is that chapter's first objective, with
+      its own section, the negative case and the `(int)`/`Math.round` contrast),
+      so a second pass would have been the 6.1 mistake. What was genuinely
+      missing is `Math.random`, `pow` and `sqrt`, none of which appeared
+      anywhere in the book.
 
 ### Wave B — Unit 2: Selection and Iteration
 
@@ -113,6 +118,22 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
   whole of inheritance, now — say so in one line and link to JavaTB.
 
 ## Standing work
+
+- [ ] **Readers see raw `$` maths on four pages.** Found 2026-09-22 while
+      writing 1.5. This book has no KaTeX — it is not in `package.json` and
+      `build/markdown.ts` has no math plugin — but four chapters write
+      `$7/2$`, `$\log_2 n$`, `$\tfrac13$` and about forty more spans, which
+      reach the built page with the dollar signs and backslashes intact.
+      Confirmed by grepping `dist/`, not by reading the source.
+
+      Affected here: 1.1, 2.3 and 4.6. 1.5 was written around it.
+      **The same defect is in CppTB and JavaTB** — 14 more files, neither
+      carrying KaTeX either — so this is a family decision, not a CsaTB one.
+
+      Two ways: add KaTeX to the three compiled books, as CalTB and PhysTB
+      have; or rewrite the spans in prose and backticks. The complexity
+      discussion in 4.6 (`n^2`, `log_2 n`) is the strongest argument for the
+      first and the reason not to just delete the markup.
 
 - Add problems to any chapter carrying fewer than two.
 - Every chapter needs `objectives` in its front-matter, or it renders as a blank
