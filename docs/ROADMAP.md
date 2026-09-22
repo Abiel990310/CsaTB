@@ -126,14 +126,21 @@ why Unit 4 gets nearly half the book and Unit 3 gets three chapters.
       reach the built page with the dollar signs and backslashes intact.
       Confirmed by grepping `dist/`, not by reading the source.
 
-      Affected here: 1.1, 2.3 and 4.6. 1.5 was written around it.
-      **The same defect is in CppTB and JavaTB** — 14 more files, neither
-      carrying KaTeX either — so this is a family decision, not a CsaTB one.
+      Affected: 1.1, 2.3 and 4.6. 1.5 was written around it.
 
-      Two ways: add KaTeX to the three compiled books, as CalTB and PhysTB
-      have; or rewrite the spans in prose and backticks. The complexity
-      discussion in 4.6 (`n^2`, `log_2 n`) is the strongest argument for the
-      first and the reason not to just delete the markup.
+      **This is a CsaTB problem only.** The commit that recorded it said the
+      same defect was in CppTB and JavaTB, in 14 more files. That was wrong,
+      and the correction is worth keeping because the grep that produced it
+      looks convincing: matching `$` followed by a letter or digit finds x86
+      immediates in CppTB's assembly listings (`$42`, `$0x16e16c`, `shl $n`)
+      and nested-class names in JavaTB (`Outer$Inner.class`, `Book$Book`,
+      `Lambda$1`). Both are legitimate `$` inside code spans. Neither book has
+      a maths span anywhere. Grep for the markup, then read the matches.
+
+      Two ways: add KaTeX here, as CalTB and PhysTB have; or rewrite the spans
+      in prose and backticks. The complexity discussion in 4.6 (`n^2`,
+      `log_2 n`) is the strongest argument for the first and the reason not to
+      just delete the markup. One book, three chapters, about forty spans.
 
 - Add problems to any chapter carrying fewer than two.
 - Every chapter needs `objectives` in its front-matter, or it renders as a blank
